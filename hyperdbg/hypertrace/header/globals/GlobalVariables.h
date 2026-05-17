@@ -35,13 +35,6 @@ BOOLEAN g_HyperTraceCallbacksInitialized;
 BOOLEAN g_RunningOnHypervisorEnvironment;
 
 /**
- * @brief The flag indicating whether the architectural LBR is supported by the CPU or not
- * if false it means the legacy LBR is supported
- *
- */
-BOOLEAN g_ArchBasedLastBranchRecord;
-
-/**
  * @brief The flag indicating whether the hypertrace LBR tracing is initialized or not
  *
  */
@@ -60,7 +53,7 @@ BOOLEAN g_ProcessorTraceEnabled;
 LBR_STACK_ENTRY * g_LbrStateList;
 
 /**
- * @brief The global variable to hold the LBR capacity of the current CPU
- *
+ * @brief Dynamically allocated array of per-CPU Intel PT state.
+ *        Sized to KeQueryActiveProcessorCount(0) at hypertrace init.
  */
-ULONGLONG g_LbrCapacity;
+PT_PER_CPU * g_PtStateList;
