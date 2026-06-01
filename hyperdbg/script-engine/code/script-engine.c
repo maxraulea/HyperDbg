@@ -1363,9 +1363,9 @@ CodeGen(PSCRIPT_ENGINE_TOKEN_LIST MatchedStack, PSYMBOL_BUFFER CodeBuffer, PSCRI
             }
 
             VariableType = (VARIABLE_TYPE *)IdToken->VariableType;
-            Temp         = NewTemp();
+            Temp         = NewTemp(Error);
             TempSymbol   = ToSymbol(Temp, Error);
-            OffsetToken  = NewTemp();
+            OffsetToken  = NewTemp(Error);
             OffsetSymbol = ToSymbol(OffsetToken, Error);
 
             Symbol        = NewSymbol();
@@ -1719,7 +1719,7 @@ CodeGen(PSCRIPT_ENGINE_TOKEN_LIST MatchedStack, PSYMBOL_BUFFER CodeBuffer, PSCRI
                     Symbol->Value = ArrayElementCount;
                     PushSymbol(CodeBuffer, Symbol);
 
-                    Temp       = NewTemp();
+                    Temp       = NewTemp(Error);
                     TempSymbol = ToSymbol(Temp, Error);
                     PushSymbol(CodeBuffer, TempSymbol);
 
@@ -1785,7 +1785,7 @@ CodeGen(PSCRIPT_ENGINE_TOKEN_LIST MatchedStack, PSYMBOL_BUFFER CodeBuffer, PSCRI
                 Symbol->Value = ArrayElementCount;
                 PushSymbol(CodeBuffer, Symbol);
 
-                Temp       = NewTemp();
+                Temp       = NewTemp(Error);
                 TempSymbol = ToSymbol(Temp, Error);
                 PushSymbol(CodeBuffer, TempSymbol);
 
